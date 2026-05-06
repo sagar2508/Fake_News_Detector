@@ -4,13 +4,6 @@ import os
 
 app = Flask(__name__)
 
-
-@app.route("/")
-def home():
-    return "Fake News Detector is LIVE"
-
-app = app
-
 # ==============================
 # LOAD MODEL + VECTORIZER
 # ==============================
