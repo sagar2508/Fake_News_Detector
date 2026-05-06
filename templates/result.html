@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="card result-card">
+
+            <h1>Analysis Result</h1>
+
+            <div class="result {{ 'real' if prediction == 'Real News' else 'fake' }}">
+                {{ prediction }}
+            </div>
+
+            <div class="confidence">
+                Confidence Score: {{ confidence }}%
+            </div>
+
+            <a href="/" class="back-btn">Analyze Another News</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const textarea = document.querySelector("textarea");
+    const form = document.querySelector("form");
+    const button = document.querySelector("button");
+
+    textarea.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+
+            button.innerText = "Analyzing...";
+            button.disabled = true;
+
+            form.submit();
+        }
+    });
+
+});
+</script>
+<body>
+
+    <div class="main-container">
+
+        <div class="card">
+            <h1>Fake News Detector</h1>
+            <p class="subtitle">Analyze news content using Machine Learning</p>
+
+            <form action="/predict" method="post">
+                <textarea name="news" placeholder="Paste news article here..." required></textarea>
+
+                <button type="submit">Analyze News</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
